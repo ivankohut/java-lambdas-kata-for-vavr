@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'io.franzbecker.gradle-lombok' version '5.0.0'
+}
+
+ext {
+    javaVersion = JavaVersion.VERSION_11
+}
+
+group = 'sk.ivankohut'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = javaVersion
+targetCompatibility = javaVersion
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "io.vavr:vavr:0.10.4"
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+lombok {
+    version '1.18.30'
+}
